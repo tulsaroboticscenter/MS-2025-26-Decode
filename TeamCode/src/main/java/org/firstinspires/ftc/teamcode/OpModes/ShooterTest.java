@@ -61,16 +61,11 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 @TeleOp(name="Shooter Testing", group="Testing")
 public class ShooterTest extends LinearOpMode {
 
-    private final LinearOpMode opMode = this;
-    public final static MSParams params = new MSParams();
 
     public ElapsedTime buttonPressTimer = new ElapsedTime();
     private double shooterRPM = 0;
     public HardwareMap hwmap;
-    private DcMotorEx motorShooter = null;
-
-
-
+    public DcMotorEx motorShooter = null;
 
     public void runOpMode() {
         motorShooter = hwmap.get(DcMotorEx.class, "motorShooter");
