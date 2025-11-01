@@ -100,8 +100,11 @@ public class AutoLM1Blue extends LinearOpMode {
 
         robot.motorIntake.setPower(1);
         robot.motorFeeder.setPower(.5);
-
-        sleep(15000);
+        sleep(2000);
+        robot.motorFeeder.setPower(.5);
+        sleep(2000);
+        robot.motorFeeder.setPower(.5);
+        sleep(12000);
         robot.motorFeeder.setPower(0);
         robot.motorIntake.setPower(0);
 
