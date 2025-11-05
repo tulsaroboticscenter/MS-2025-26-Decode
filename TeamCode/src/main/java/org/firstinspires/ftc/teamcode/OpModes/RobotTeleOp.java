@@ -118,7 +118,7 @@ public class RobotTeleOp extends LinearOpMode {
             }
             if (gamepad1.x) {
                 shooterPower = 1;
-                shooterRPM = 1000;
+                shooterRPM = 2800;
             }
             if (gamepad1.a) {
                 shooterPower = 0;
@@ -155,7 +155,7 @@ public class RobotTeleOp extends LinearOpMode {
             if(gamepad1.dpad_down){
                 if((buttonPressTimer.time() > 0.25)) {
                     shooterPower = shooterPower - 0.05;
-                    shooterRPM = shooterRPM - 10;
+                    shooterRPM = shooterRPM - 100;
                     buttonPressTimer.reset();
                 }
 
@@ -163,7 +163,7 @@ public class RobotTeleOp extends LinearOpMode {
             if(gamepad1.dpad_up){
                 if((buttonPressTimer.time() > 0.25)) {
                     shooterPower = shooterPower + 0.05;
-                    shooterRPM = shooterRPM + 10;
+                    shooterRPM = shooterRPM + 100;
                     buttonPressTimer.reset();
                 }
 
@@ -226,7 +226,8 @@ public class RobotTeleOp extends LinearOpMode {
             telemetry.addData("Right Rear Motor Encoder = ", robot.motorRR.getCurrentPosition());
             telemetry.addData("Right Rear Motor Current = ", robot.motorRR.getCurrent(CurrentUnit.AMPS));
             telemetry.addData("Shooter = ", robot.motorShooter.getCurrent(CurrentUnit.AMPS));
-            telemetry.addData("Shooter RPM = ", robot.motorShooter.getVelocity());
+            telemetry.addData("Shooter TPS Set = ", shooterRPM);
+            telemetry.addData("Shooter TPS = ", robot.motorShooter.getVelocity());
             telemetry.addData("TestPosition = ", testPosition);
             telemetry.addData("Angular Rate = ", shooterRPM);
             telemetry.addData("Status", "Running");
@@ -243,7 +244,7 @@ public class RobotTeleOp extends LinearOpMode {
      * @param targetRPM
      */
     public void shooterControl(double targetRPM){
-        robot.motorShooter.setVelocity(rpmToTicksPerSecond(targetRPM));
+        robot.motorShooter.setVelocity(targetRPM);
     }   // end of method shooterControl
 
     /**

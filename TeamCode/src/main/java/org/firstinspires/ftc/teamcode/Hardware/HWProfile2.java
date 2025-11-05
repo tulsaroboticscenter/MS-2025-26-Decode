@@ -62,7 +62,7 @@ public class HWProfile2 {
     public DcMotorEx motorLR;
     public DcMotorEx motorRF;
     public DcMotorEx motorRR;
-    public DcMotorEx motorShooter = null;
+    public DcMotorEx motorShooter;
     public DcMotorEx motorIntake;
     public DcMotorEx motorFeeder;
 
@@ -133,8 +133,8 @@ public class HWProfile2 {
              *
              * To Do:  EDIT these two lines to match YOUR mounting configuration.
              */
-            RevHubOrientationOnRobot.LogoFacingDirection logoDirection = RevHubOrientationOnRobot.LogoFacingDirection.RIGHT;
-            RevHubOrientationOnRobot.UsbFacingDirection  usbDirection  = RevHubOrientationOnRobot.UsbFacingDirection.UP;
+            RevHubOrientationOnRobot.LogoFacingDirection logoDirection = RevHubOrientationOnRobot.LogoFacingDirection.LEFT;
+            RevHubOrientationOnRobot.UsbFacingDirection  usbDirection  = RevHubOrientationOnRobot.UsbFacingDirection.FORWARD;
 
             RevHubOrientationOnRobot orientationOnRobot = new RevHubOrientationOnRobot(logoDirection, usbDirection);
 
@@ -145,7 +145,7 @@ public class HWProfile2 {
         }
 
         motorShooter = ahwMap.get(DcMotorEx.class, "motorShooter");
-        motorShooter.setDirection(DcMotor.Direction.FORWARD);
+        motorShooter.setDirection(DcMotor.Direction.REVERSE);
         motorShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         motorShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         motorShooter.setPower(0);
